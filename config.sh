@@ -9,9 +9,9 @@ fi
 
 mydir=$1
 
-alias_file=${mydir}/.bash_aliases
-local_file=${mydir}/.bash_local
-common_file=${mydir}/.bash_common
+alias_file=${mydir}/bash_aliases
+local_file=${mydir}/bash_local
+common_file=${mydir}/bash_common
 
 if [ -f "${alias_file}" ]; then
 	source "${alias_file}"
