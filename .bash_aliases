@@ -27,4 +27,4 @@ function kfind () {
     find "${dir}" -maxdepth ${maxdepth} -iname "${name}"
 }
 
-alias cgrep='egrep -rni --include="*.[ch]" --include="*.cpp"'
+alias cgrep='egrep --color=auto -rni --include="*.[ch]" --include="*.cpp"'
