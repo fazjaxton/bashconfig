@@ -7,24 +7,31 @@ function show () {
 
 function kfind () {
     local dir="."
-    local maxdepth=4
+    local maxdepth="-maxdepth 4"
     local name=""
 
     if [ $# -lt 1 ]; then
-        echo "kfind name [dir [maxdepth]]"
+        echo "kfind name [dir [maxdepth]] ..."
         return 1
     fi
     if [ $# -gt 0 ]; then
         name="$1"
+        shift
     fi
-    if [ $# -gt 1 ]; then
-        dir="$2"
+    if [ $# -gt 0 ]; then
+        dir="$1"
+        shift
     fi
-    if [ $# -gt 2 ]; then
-        maxdepth="$3"
+    if [ $# -gt 0 ]; then
+        if [ $1 -lt 0 ]; then
+            maxdepth=""
+        else
+            maxdepth="-maxdepth $1"
+        fi
+        shift
     fi
 
-    find "${dir}" -maxdepth ${maxdepth} -iname "${name}"
+    find "${dir}" ${maxdepth} -iname "${name}" "$@"
 }
 
 # Handle ill-advised resets with modified files.  Add a --force-hard option to
