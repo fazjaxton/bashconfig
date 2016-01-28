@@ -70,3 +70,4 @@ function git {
 
 alias cgrep='egrep --color=auto -rni --include="*.[ch]" --include="*.cpp"'
 alias phex='printf "%x\n"'
+alias fuck='sudo "$BASH" -c "$(history -p !!)"'
