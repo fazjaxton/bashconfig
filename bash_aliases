@@ -38,7 +38,7 @@ function kfind () {
 # overwrite anyway.
 function git_reset {
     if [ "$1" == "--hard" ]; then
-        if command git status --porcelain | egrep "^(M.|.M)" > /dev/null; then
+        if command git status --porcelain --ignore-submodules | egrep "^(M.|.M)" > /dev/null; then
             # If there are working-directory changes, warn and list
             echo "Modified files will be overwritten!" \
                 "Use --force-hard to overwrite."
